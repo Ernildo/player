@@ -5,11 +5,7 @@
     </div>
 
     <div class="color-controls-area">
-      <button 
-        :key="index" 
-        v-for="(btn, index) in buttons"
-        :class="btn">
-      </button>
+      <ButtonColors/>
     </div>
     
     <div class="play-pause-ara"></div>
@@ -21,12 +17,12 @@
 </template>
 
 <script>
+import ButtonColors from './ButtonColors.vue'
+
 export default {
   name: 'Controls',
-  data() {
-    return {
-      buttons: ['colors', 'black-white', 'red', 'blue', 'green']
-    }
+  components: {
+    ButtonColors
   }
 }
 </script>
@@ -70,34 +66,15 @@ export default {
 
 .color-controls-area {
   grid-area: b;
-  /* background-color: red; */
-  flex-direction: column;
-  justify-content: space-around;
+  display: flex;
+  justify-content: flex-start;
   align-items: center;
-  padding-right: 20%;
+  padding-left: 14%;
 }
-
-  .color-controls-area button {
-    height: 45px;
-    width: 45px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px 2px rgba(rgb(87, 32, 32) 0.2);
-    cursor: pointer;
-  }
-
-    .colors { background-image: linear-gradient(blue, red, green); }
-    .black-white { background-image: linear-gradient(black, white); }
-    .red { background-color: red; }
-    .blue { background-color: blue; }
-    .green { background-color: green; }
-
-  .color-controls-area button:focus {
-    border: 2px solid black;
-  }
 
 .play-pause-ara {
   grid-area: c;
-  /* background-color: green; */
+  background-color: green;
 }
 
 .times-area {
