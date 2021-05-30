@@ -23,7 +23,7 @@
         v-model="time"
         @change="change"/>
 
-      <InputVolume/>
+      <InputVolume v-model="volume"/>
     </div>
   </div>
 </template>
@@ -60,7 +60,8 @@ export default {
   data() {
     return {
       statusPlayPause: false,
-      time: 0
+      time: 0,
+      volume: 1
     }
   },
 
@@ -76,6 +77,9 @@ export default {
     },
     value(val) {
       this.time = val;
+    },
+    volume(val) {
+      this.$emit('volume', val);
     }
   },
 

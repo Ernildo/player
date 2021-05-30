@@ -30,6 +30,11 @@ export default {
     update: {
       type: Number,
       default: 0
+    },
+
+    volume: {
+      type: Number,
+      default: 1
     }
   }, 
 
@@ -63,6 +68,9 @@ export default {
     },
     update(val) {
       this.$refs.videoTag.currentTime = val;
+    },
+    volume(val) {
+      this.$refs.videoTag.volume = val;
     }
   }
 }

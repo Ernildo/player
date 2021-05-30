@@ -8,6 +8,7 @@
       :playPause="btnPlayPause"
       @endvideo="() => btnPlayPause = false"
       :update="updateTime"
+      :volume="volume"
       v-model="timeVideo"/>
 
     <Controls 
@@ -15,7 +16,8 @@
       :playPause="btnPlayPause"
       @playPause="(e) => btnPlayPause = e"
       v-model="timeVideo"
-      @change="(t) => updateTime = t"/>
+      @change="(t) => updateTime = t"
+      @volume="(v) => volume = v"/>
   </div>
 </template>
 
@@ -34,7 +36,8 @@ export default {
       showControls: false,
       btnPlayPause: false,
       timeVideo: 0,
-      updateTime: 0
+      updateTime: 0,
+      volume: 1
     }
   },
   watch: {
