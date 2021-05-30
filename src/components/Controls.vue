@@ -9,7 +9,7 @@
     </div>
     
     <div class="play-pause-ara">
-      <ButtonPlayPause @click="sendClickPlayPause"/>
+      <ButtonPlayPause v-model="statusPlayPause"/>
     </div>
     
     <div class="times-area">
@@ -33,6 +33,7 @@ import InputVolume from './InputVolume.vue'
 
 export default {
   name: 'Controls',
+  
   components: {
     ButtonColors,
     ButtonPlayPause,
@@ -40,9 +41,26 @@ export default {
     InputTime,
     InputVolume
   },
-  methods: {
-    sendClickPlayPause(e) {
-      this.$emit('playPause', e);
+
+  props: {
+    playPause: {
+      type: Boolean,
+      default: false
+    }
+  },
+
+  data() {
+    return {
+      statusPlayPause: false
+    }
+  },
+
+  watch: {
+    statusPlayPause(val) {
+      this.$emit('playPause', val);
+    },
+    playPause(val) {
+      this.statusPlayPause = val;
     }
   }
 }

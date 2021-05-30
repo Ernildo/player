@@ -7,16 +7,28 @@
 <script>
 export default {
   name: 'ButtonPlayPause',
+
+  props: {
+    value: {
+      type: Boolean,
+      default: false
+    }
+  },
+
   data() {
     return {
       status: false
     }
   },
   watch: {
-    status(value) {
+    status(val) {
       const button = this.$refs.playPause;
-      value ? button.classList.add('play') : button.classList.remove('play'); 
-      this.$emit('click', value);
+      val ? button.classList.add('play') : button.classList.remove('play'); 
+      this.$emit('input', val);
+    },
+
+    value(val) {
+      this.status = val;
     }
   }
 }

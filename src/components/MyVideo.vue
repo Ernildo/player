@@ -1,6 +1,8 @@
 <template>
   <div class="video-container">
-    <video ref="videoTag">
+    <video ref="videoTag"
+      @ended="endVideo">
+      
       <source 
         :src="midia" 
         type="video/mp4"
@@ -21,6 +23,12 @@ export default {
       default: false
     }
   }, 
+
+  methods: {
+    endVideo(e) {
+      this.$emit('endvideo', e);
+    }
+  },
 
   data() {
     return {

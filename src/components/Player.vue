@@ -5,10 +5,12 @@
     @mouseout="() => showControls = true">
     
     <MyVideo
-      :playPause="btnPlayPause"/>
-      
+      :playPause="btnPlayPause"
+      @endvideo="() => btnPlayPause = false"/>
+
     <Controls 
       v-show="showControls"
+      :playPause="btnPlayPause"
       @playPause="(e) => btnPlayPause = e"/>
   </div>
 </template>
