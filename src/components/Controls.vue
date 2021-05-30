@@ -9,7 +9,7 @@
     </div>
     
     <div class="play-pause-ara">
-      <ButtonPlayPause/>
+      <ButtonPlayPause @click="sendClickPlayPause"/>
     </div>
     
     <div class="times-area">
@@ -39,6 +39,11 @@ export default {
     ListTimes,
     InputTime,
     InputVolume
+  },
+  methods: {
+    sendClickPlayPause(e) {
+      this.$emit('playPause', e);
+    }
   }
 }
 </script>
@@ -100,7 +105,6 @@ export default {
 
 .controls-area {
   grid-area: e;
-  /* background-color: brown; */
   display: flex;
   justify-content: space-around;
   align-items: center;

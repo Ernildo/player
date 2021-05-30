@@ -4,8 +4,12 @@
     @mouseover="() => showControls = true"
     @mouseout="() => showControls = true">
     
-    <MyVideo/>
-    <Controls v-show="showControls"/>
+    <MyVideo
+      :playPause="btnPlayPause"/>
+      
+    <Controls 
+      v-show="showControls"
+      @playPause="(e) => btnPlayPause = e"/>
   </div>
 </template>
 
@@ -21,7 +25,8 @@ export default {
   },
   data() {
     return {
-      showControls: false
+      showControls: false,
+      btnPlayPause: false,
     }
   },
 }
