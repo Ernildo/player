@@ -8,7 +8,9 @@
       <ButtonColors/>
     </div>
     
-    <div class="play-pause-ara"></div>
+    <div class="play-pause-ara">
+      <ButtonPlayPause/>
+    </div>
     
     <div class="times-area"></div>
     
@@ -18,11 +20,13 @@
 
 <script>
 import ButtonColors from './ButtonColors.vue'
+import ButtonPlayPause from './ButtonPlayPause.vue'
 
 export default {
   name: 'Controls',
   components: {
-    ButtonColors
+    ButtonColors,
+    ButtonPlayPause
   }
 }
 </script>
@@ -74,7 +78,10 @@ export default {
 
 .play-pause-ara {
   grid-area: c;
-  background-color: green;
+  /* background-color: green; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .times-area {

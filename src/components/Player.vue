@@ -2,7 +2,7 @@
   <div 
     class="player-container"
     @mouseover="() => showControls = true"
-    @mouseout="() => showControls = false">
+    @mouseout="() => showControls = true">
     
     <MyVideo/>
     <Controls v-show="showControls"/>

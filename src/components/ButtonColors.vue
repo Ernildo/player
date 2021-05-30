@@ -1,12 +1,12 @@
 <template>
   <div class="button-colors-container">
-      <button 
-        :key="index" 
-        v-for="(btn, index) in buttons"
-        @click="trowEvent(btn)">
-        <div :class="btn"></div>
-        <p> {{btn}} </p>
-      </button>
+    <button 
+      :key="index" 
+      v-for="(btn, index) in buttons"
+      @click="trowEvent(btn)">
+      <div :class="btn"></div>
+      <p> {{btn}} </p>
+    </button>
   </div>  
 </template>
 
