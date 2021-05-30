@@ -64,7 +64,7 @@ div {
     color: white;
   }
   div ul li:hover {
-    color: blue;
+    color: #00a8ff;
   }
 
 </style>

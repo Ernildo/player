@@ -13,10 +13,14 @@
     </div>
     
     <div class="times-area">
-      <ListTimes @click="teste"/>
+      <ListTimes/>
     </div>
     
-    <div class="controls-area"></div>
+    <div class="controls-area">
+      <!-- vai recerber o slider de tempo e de volume (dois componentes separados) -->
+      <InputTime :totalTime="135"/>
+      <InputVolume/>
+    </div>
   </div>
 </template>
 
@@ -24,18 +28,17 @@
 import ButtonColors from './ButtonColors.vue'
 import ButtonPlayPause from './ButtonPlayPause.vue'
 import ListTimes from './ListTimes.vue'
+import InputTime from './InputTime.vue'
+import InputVolume from './InputVolume.vue'
 
 export default {
   name: 'Controls',
   components: {
     ButtonColors,
     ButtonPlayPause,
-    ListTimes
-  },
-  methods: {
-    teste(time) {
-      console.log(time)
-    }
+    ListTimes,
+    InputTime,
+    InputVolume
   }
 }
 </script>
@@ -65,7 +68,6 @@ export default {
 
 .name-area {
   grid-area: a;
-  /* background-color: blue; */
   padding: 0 5%;
   justify-content: flex-start;
   align-items: center;
@@ -87,7 +89,6 @@ export default {
 
 .play-pause-ara {
   grid-area: c;
-  /* background-color: green; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -95,11 +96,13 @@ export default {
 
 .times-area {
   grid-area: d;
-  /* background-color: bisque; */
 }
 
 .controls-area {
   grid-area: e;
   /* background-color: brown; */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 </style>
