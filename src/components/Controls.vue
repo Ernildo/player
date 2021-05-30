@@ -12,7 +12,9 @@
       <ButtonPlayPause/>
     </div>
     
-    <div class="times-area"></div>
+    <div class="times-area">
+      <ListTimes @click="teste"/>
+    </div>
     
     <div class="controls-area"></div>
   </div>
@@ -21,12 +23,19 @@
 <script>
 import ButtonColors from './ButtonColors.vue'
 import ButtonPlayPause from './ButtonPlayPause.vue'
+import ListTimes from './ListTimes.vue'
 
 export default {
   name: 'Controls',
   components: {
     ButtonColors,
-    ButtonPlayPause
+    ButtonPlayPause,
+    ListTimes
+  },
+  methods: {
+    teste(time) {
+      console.log(time)
+    }
   }
 }
 </script>
