@@ -12,9 +12,8 @@ export default {
 .controls-container {
   height: 100%;
   width: 100%;
-  border-radius: 8px;
   position: relative;
   top: 0;
-  background-color: red;
+  background-color: rgba(0, 0, 0, 0.6);
 }
 </style>

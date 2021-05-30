@@ -1,11 +1,22 @@
 <template>
   <div class="video-container">
+    <video ref="videoTag">
+      <source :src="midia" type="video/mp4"/>
+    </video>
   </div>
 </template>
 
 <script>
+import midia from '../assets/teste.mp4'
+
 export default {
-  name: 'MyVideo'
+  name: 'MyVideo',
+ 
+  data() {
+    return {
+      midia
+    }
+  }
 }
 </script>
 
@@ -13,10 +24,17 @@ export default {
 .video-container {
   height: 100%;
   width: 100%;
-  border-radius: 8px;
+  
   position: relative;
   float: left;
-  background-color: transparent;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+  .video-container video {
+    height: 99%;
+    width: 99%;
+  }
 </style>
