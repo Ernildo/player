@@ -13,12 +13,16 @@
     </div>
     
     <div class="times-area">
-      <ListTimes/>
+      <ListTimes @click="sendTime"/>
     </div>
     
     <div class="controls-area">
       <!-- vai recerber o slider de tempo e de volume (dois componentes separados) -->
-      <InputTime :totalTime="135"/>
+      <InputTime 
+        :totalTime="20"
+        v-model="time"
+        @change="change"/>
+
       <InputVolume/>
     </div>
   </div>
@@ -46,12 +50,17 @@ export default {
     playPause: {
       type: Boolean,
       default: false
+    },
+    value: {
+      type: Number,
+      default: 0
     }
   },
 
   data() {
     return {
-      statusPlayPause: false
+      statusPlayPause: false,
+      time: 0
     }
   },
 
@@ -61,6 +70,22 @@ export default {
     },
     playPause(val) {
       this.statusPlayPause = val;
+    },
+    time(val) {
+      this.$emit('input', val);
+    },
+    value(val) {
+      this.time = val;
+    }
+  },
+
+  methods: {
+    change(val) {
+      this.$emit('change', val);
+    },
+    sendTime(e) {
+      const val = parseInt(e.split(':')[1]);
+      this.$emit('change', val);
     }
   }
 }

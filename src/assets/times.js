@@ -1,26 +1,26 @@
 export default [
   {
-    time: "00:12",
+    time: "00:01",
     description: "alguma informação sobre o tempo",
   },
   {
-    time: "01:00",
+    time: "00:03",
     description: "alguma informação sobre o tempo",
   },
   {
-    time: "01:12",
+    time: "00:05",
     description: "alguma informação sobre o tempo",
   },
   {
-    time: "01:30",
+    time: "00:10",
     description: "alguma informação sobre o tempo",
   },
   {
-    time: "01:50",
+    time: "00:14",
     description: "alguma informação sobre o tempo",
   },
   {
-    time: "02:04",
+    time: "00:17",
     description: "alguma informação sobre o tempo",
   },
 ];

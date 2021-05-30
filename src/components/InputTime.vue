@@ -7,7 +7,8 @@
       min="0"
       :max="totalTime"
       v-model="dataTime"
-      step="1"/>
+      step="0.01"
+      @change="change"/>
     
     <p>{{atualTime}}</p>
   </div>
@@ -42,6 +43,10 @@ export default {
       const seg = (seconds <= 9) ? `0${seconds}` : seconds.toString();
 
       return `${min}:${seg}`;
+    },
+
+    change() {
+      this.$emit('change', this.dataTime);
     }
   },
   

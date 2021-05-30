@@ -2,16 +2,20 @@
   <div 
     class="player-container"
     @mouseover="() => showControls = true"
-    @mouseout="() => showControls = true">
+    @mouseout="() => showControls = false">
     
     <MyVideo
       :playPause="btnPlayPause"
-      @endvideo="() => btnPlayPause = false"/>
+      @endvideo="() => btnPlayPause = false"
+      :update="updateTime"
+      v-model="timeVideo"/>
 
     <Controls 
       v-show="showControls"
       :playPause="btnPlayPause"
-      @playPause="(e) => btnPlayPause = e"/>
+      @playPause="(e) => btnPlayPause = e"
+      v-model="timeVideo"
+      @change="(t) => updateTime = t"/>
   </div>
 </template>
 
@@ -29,8 +33,15 @@ export default {
     return {
       showControls: false,
       btnPlayPause: false,
+      timeVideo: 0,
+      updateTime: 0
     }
   },
+  watch: {
+    timeVideo(val) {
+      console.log(val);
+    }
+  }
 }
 </script>
 

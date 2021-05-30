@@ -1,7 +1,8 @@
 <template>
   <div class="video-container">
     <video ref="videoTag"
-      @ended="endVideo">
+      @ended="endVideo"
+      @timeupdate="updateVideo">
       
       <source 
         :src="midia" 
@@ -21,18 +22,31 @@ export default {
     playPause: {
       type: Boolean,
       default: false
+    },
+    value: {
+      type: Number,
+      default: 0
+    },
+    update: {
+      type: Number,
+      default: 0
     }
   }, 
 
   methods: {
     endVideo(e) {
       this.$emit('endvideo', e);
+    },
+    updateVideo() {
+      const time = parseInt(`${this.$refs.videoTag.currentTime}`)
+      this.time = time;
     }
   },
 
   data() {
     return {
-      midia
+      midia,
+      time: 0
     }
   },
 
@@ -40,6 +54,15 @@ export default {
     playPause(val) {
       const video = this.$refs.videoTag;
       val ? video.play() : video.pause();
+    },
+    time(val) {
+      this.$emit('input', val);
+    },
+    value(val) {
+      this.time = val;
+    },
+    update(val) {
+      this.$refs.videoTag.currentTime = val;
     }
   }
 }
