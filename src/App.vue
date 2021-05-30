@@ -1,11 +1,9 @@
 <template>
-  <div class="app-container">
-    <Player/>
-  </div>
+  <Player/>
 </template>
 
 <script>
-import Player from './components/Player'
+import Player from './components/Player.vue'
 
 export default {
   name: 'App',
@@ -25,13 +23,8 @@ export default {
   list-style: none;
 }
 
-.app-container {
-  height: 100vh;
-  width: 100%;
-  background-color: #2f3640;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+body {
+  background-color: #1e272e;
 }
 
 </style>

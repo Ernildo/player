@@ -1,43 +1,29 @@
 <template>
-  <div class="player-container">
-    <div class="area-filters"></div>
-    <div 
-      class="area-video" 
-      @mouseover="over"
-      @mouseout="out">
-        <Video/>
-        <Controls v-show="exibe"/>
-      </div>
+  <div 
+    class="player-container"
+    @mouseover="() => showControls = true"
+    @mouseout="() => showControls = false">
+    <!-- Serão substituidos por componentes -->
+    <MyVideo/>
+    <Controls v-show="showControls"/>
+    <!-- <div class="video"></div> -->
+    <!-- <div class="controls" v-show="showControls"></div> -->
   </div>
 </template>
 
 <script>
-import Video from './Video'
-import Controls from './Controls'
+import MyVideo from './MyVideo.vue'
+import Controls from './Controls.vue'
 
 export default {
   name: 'Player',
-
-  components: {
-    Controls,
-    Video
+  components: { 
+    MyVideo,
+    Controls
   },
-
   data() {
     return {
-      exibe: false
-    }
-  },
-
-  methods: {
-    over() {
-      console.log('entrou aqui');
-      this.exibe = true;
-    },
-
-    out() {
-      console.log('saiu daqui');
-      this.exibe = false;
+      showControls: false
     }
   }
 }
@@ -45,31 +31,16 @@ export default {
 
 <style scoped>
 .player-container {
-  height: 80%;
-  width: 70%;
-  background-color: white;
+  height: 90%;
+  width: 80%;
+  box-shadow: 0px 0px 10px 2px rgba(0,0,0, 0.4);
   border-radius: 8px;
-  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.50);
-
-  display: grid;
-  grid-template-rows: 100%;
-  grid-template-columns: 10% 90%;
-  grid-template-areas: "area-filters area-video";
-}
-
-.area-filters {
-  grid-area: area-filters;
-  height: 100%;
-  width: 100%;
-  background-color: transparent;
-}
-
-.area-video {
-  grid-area: area-video;
-  height: 100%;
-  width: 100%;
-  background-color: black;
-  border-radius: 0 8px 8px 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
 }
 
 </style>

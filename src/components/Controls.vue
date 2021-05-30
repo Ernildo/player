@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: 'controls_comp'
+  name: 'Controls'
 }
 </script>
 
@@ -12,8 +12,9 @@ export default {
 .controls-container {
   height: 100%;
   width: 100%;
-  background-color: red;
+  border-radius: 8px;
   position: relative;
   top: 0;
+  background-color: red;
 }
 </style>

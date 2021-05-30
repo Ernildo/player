@@ -1,10 +1,11 @@
 <template>
-  <div class="video-container"></div>
+  <div class="video-container">
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'video_comp'
+  name: 'MyVideo'
 }
 </script>
 
@@ -12,8 +13,10 @@ export default {
 .video-container {
   height: 100%;
   width: 100%;
-  background-color: blue;
+  border-radius: 8px;
   position: relative;
   float: left;
+  background-color: transparent;
 }
+
 </style>
